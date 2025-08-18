@@ -38,7 +38,6 @@ class Dalal(models.Model):
     name = models.CharField(max_length=250)
     dalal_code = models.CharField(max_length=100, null=True, blank=True)
     picture = models.ImageField(upload_to='dalals/pictures/', height_field=None, width_field=None, max_length=None, null=True, blank=True)
-    slug = models.SlugField(null=True)
     #Identity
     # dob = models.DateField(null=True, blank=True)
     address_last_known = models.TextField(null=True, blank=True)

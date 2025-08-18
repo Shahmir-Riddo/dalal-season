@@ -82,7 +82,7 @@ def add_dalal(request):
 @user_passes_test(is_superuser_check)
 def dalal_list(request):
     form = DalalFilterForm(request.GET)
-    dalals = Dalal.objects.all()
+    dalals = Dalal.objects.all().order_by('-traitor_rank')
 
     if form.is_valid():
             
