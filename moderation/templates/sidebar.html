@@ -1,0 +1,56 @@
+{% load static %}
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+    <div class="sidebar-heading text-center py-4 border-bottom">
+        <img src="{% static 'images/logo-modified.png' %}" class="rounded-circle shadow-sm" alt="Logo" width="50" height="50">
+        <h6 class="mt-2 mb-0">Dalal Season</h6>
+    </div>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/ds-admin/dashboard">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Dalals
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+                         <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url "dalal_list" %}" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user-secret"></i>
+                    <span>Dalal List</span>
+                </a>
+                
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url "add_dalal" %}" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Add New Dalal</span>
+                </a>
+                
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+
+            <hr class="sidebar-divider d-none d-md-block">
+            
+
+            <!-- Sidebar Message -->
+ 
+
+        </ul>

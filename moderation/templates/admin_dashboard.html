@@ -1,0 +1,137 @@
+{% extends "admin_base.html" %}
+{% load static %}
+
+{% block title %}
+Dalal Dashboard
+{% endblock title %}
+
+{% block body %}
+<div id="wrapper">
+    <!-- Sidebar -->
+    {% include "sidebar.html" %}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            {% include "admin_navbar.html" %}
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Dalal Dashboard</h1>
+                    <a href="{% url 'logout_view' %}" class="btn btn-sm btn-primary shadow-sm">
+                        <i class="fas fa-sign-out-alt fa-sm text-white-50"></i> Logout
+                    </a>
+                </div>
+
+                <!-- Stat Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Dalals</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_dalal_count }}</div>
+                                </div>
+                                <i class="fas fa-user-secret fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Fugitives</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ fugitive_count }}</div>
+                                </div>
+                                <i class="fas fa-running fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Captured</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ captured_count }}</div>
+                                </div>
+                                <i class="fas fa-lock fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-dark shadow h-100 py-2">
+                            <div class="card-body d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Terminated</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ terminated_count }}</div>
+                                </div>
+                                <i class="fas fa-skull-crossbones fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dalal Ranking -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Dalal Ranking</h6>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Shoe Count</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for dalal in ranking %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ dalal.name }}</td>
+                                            <td>{{ dalal.shoe_count }}</td>
+                                            <td>
+                                                {% if dalal.status == 'fugitive' %}
+                                                    <span class="badge badge-danger">Fugitive</span>
+                                                {% elif dalal.status == 'captured' %}
+                                                    <span class="badge badge-success">Captured</span>
+                                                {% elif dalal.status == 'terminated' %}
+                                                    <span class="badge badge-dark">Terminated</span>
+                                                {% else %}
+                                                    <span class="badge badge-secondary">Unknown</span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="4" class="text-center">No Dalals yet</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        {% include "admin_footer.html" %}
+    </div>
+</div>
+
+{% endblock body %}

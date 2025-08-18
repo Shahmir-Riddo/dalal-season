@@ -1,0 +1,17 @@
+[
+  {"model": "archive.dalal", "pk": 1, "fields": {"name": "Sheikh Hasina", "dalal_code": "#0001", "role": "Leader", "status": "Fugitive", "traitor_rank": 100}},
+  {"model": "archive.dalal", "pk": 2, "fields": {"name": "Chanchal Chowdhury", "dalal_code": "#0002", "role": "Actor", "status": "Available", "traitor_rank": 40}},
+  {"model": "archive.dalal", "pk": 3, "fields": {"name": "ZI Khan Panna", "dalal_code": "#0003", "role": "Lawyer", "status": "Available", "traitor_rank": 60}},
+  {"model": "archive.dalal", "pk": 4, "fields": {"name": "Redwanul Islam", "dalal_code": "#0004", "role": "Enforcement", "status": "Available", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 5, "fields": {"name": "Salman Fazlur Rahman", "dalal_code": "#0005", "role": "Minister", "status": "Captured", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 6, "fields": {"name": "Mohammad Ali Arafat", "dalal_code": "#0006", "role": "Minister", "status": "Fugitive", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 7, "fields": {"name": "Zafar Iqbal", "dalal_code": "#0007", "role": "Writer", "status": "Available", "traitor_rank": 40}},
+  {"model": "archive.dalal", "pk": 8, "fields": {"name": "Nijhoom Mazumder", "dalal_code": "#0008", "role": "Activist", "status": "Fugitive", "traitor_rank": 60}},
+  {"model": "archive.dalal", "pk": 9, "fields": {"name": "Majharul Kabir Shoyon", "dalal_code": "#0009", "role": "Crook", "status": "Fugitive", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 10, "fields": {"name": "Sadiqul Haque Sadek", "dalal_code": "#0010", "role": "Enforcement", "status": "Captured", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 11, "fields": {"name": "Saddam Hussain", "dalal_code": "#0011", "role": "Crook", "status": "Fugitive", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 12, "fields": {"name": "Shaibal Talukder", "dalal_code": "#0012", "role": "Activist", "status": "Fugitive", "traitor_rank": 20}},
+  {"model": "archive.dalal", "pk": 13, "fields": {"name": "Obaidul Quader", "dalal_code": "#0013", "role": "Minister", "status": "Fugitive", "traitor_rank": 80}},
+  {"model": "archive.dalal", "pk": 14, "fields": {"name": "Nahid Mohiuddin Helal", "dalal_code": "#0014", "role": "Activist", "status": "Fugitive", "traitor_rank": 60}},
+  {"model": "archive.dalal", "pk": 15, "fields": {"name": "Zunaid Ahmad Polok", "dalal_code": "#0015", "role": "Minister", "status": "Captured", "traitor_rank": 80}}
+]

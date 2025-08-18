@@ -1,0 +1,113 @@
+
+{% extends "admin_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+        {% block title %}
+        Admin Login
+        {% endblock title %}
+
+{% block style %}
+.mobile-gif {
+    display: none;
+}
+.desktop-video {
+    display: block;
+    height: 100%;
+}
+
+/* On small screens, hide video and show GIF */
+@media (max-width: 992px) {
+    .desktop-video {
+        display: none;
+    }
+    .mobile-gif {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+
+{% endblock style %}
+
+
+{% block body %}
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-media">
+        {% comment %} Video for desktop {% endcomment %}
+<video autoplay loop controls style="width:100%; height:100%; object-fit:cover;" class="desktop-video" >
+    <source src="{% static 'videos/tmdvid.mp4' %}" type="video/mp4">
+</video>
+
+     {% comment %} GIF for phone {% endcomment %}
+<img src="{% static 'images/tmd.gif' %}" alt="Login GIF" class="mobile-gif">
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <img src="{% static "images/logo.jpg" %}" alt="Logo" class="logo" style="width:120px;">
+                                      
+                                        <h1 class="h4 text-gray-900 mb-4">Admin Panel</h1>
+                                    
+                                    </div>
+                                    {% if messages %}
+                                    {% for m in messages %}
+                                    <div class="alert">
+                                    
+                                    {{ m }}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <form class="user" method="POST">{% csrf_token %}
+                                        {{ form | crispy }}
+                                        {% comment %} <div class="form-group">
+                                            <input type="username" class="form-control form-control-user"
+                                                id="exampleInputUser" 
+                                                placeholder="Enter Username...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password">
+                                        </div> {% endcomment %}
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Login</button> 
+                                        <hr>
+                                  
+                                    </form>
+                                    <hr>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock body %}
+
