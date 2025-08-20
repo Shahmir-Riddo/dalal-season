@@ -59,6 +59,11 @@
         color: darkred;
       
     }
+    .fixed-img {
+  width: 250px;  
+  height: 250px;  
+  object-fit: cover; /* crop instead of stretching */
+}
 </style>
 {% include "navbar.html" %}
 <div class="container my-6">
@@ -68,7 +73,7 @@
         <div class="col-md-4 text-center">
             <div class="position-relative d-inline-block">
                 {% if dalal.picture %}
-                    <img src="{{ dalal.picture.url }}" alt="{{ dalal.name }}" class="img-fluid rounded shadow-sm border border-danger">
+                    <img src="{{ dalal.picture.url }}" alt="{{ dalal.name }}" class="fixed-img rounded shadow-sm border border-danger">
                 {% else %}
                     <img src="{% static 'videos/loader.gif' %}" alt="No Image" class="img-fluid rounded shadow-sm border border-danger">
                 {% endif %}
@@ -77,14 +82,16 @@
             
             <h3 class="mt-3 text-danger">{{ dalal.name|upper }}</h3>
             <p class="mb-1"><strong>Role:</strong> {{ dalal.role }}</p>
+            {% if dalal.affiliation %}
             <p class="mb-1"><strong>Affiliation:</strong> {{ dalal.affiliation }}</p>
+            {% endif %}
             <p class="mb-1"><strong>Status:</strong> 
                 <span class="badge 
-                    {% if dalal.status == 'available' %}bg-success
+                    {% if dalal.status == 'available' %}bg-orange
                     {% elif dalal.status == 'captured' %}bg-primary
                     {% elif dalal.status == 'fugitive' %}bg-danger
-                    {% elif dalal.status == 'terminated' %}bg-dark
-                    {% else %}bg-secondary
+                    {% elif dalal.status == 'terminated' %}bg-success
+                    {% else %}bg-danger
                     {% endif %}">
                     {{ dalal.get_status_display }}
                 </span>
@@ -123,7 +130,7 @@
             {% if dalal.profile_report %}
                 <div>{{ dalal.profile_report|safe }}</div>
             {% else %}
-                <p class="humiliate-text">Information about {{ dalal.name }} is pathetic and incomplete.</p>
+                <p class="humiliate-text">Information about {{ dalal.name }} is incomplete.</p>
             {% endif %}
 
             <hr class="border-danger">

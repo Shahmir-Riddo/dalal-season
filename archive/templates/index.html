@@ -78,6 +78,13 @@
     cursor: pointer;
 }
 
+    .shoe-badge {
+        color:rgba(220, 53, 69, 0.85);
+       
+        border-radius: 20px;
+        font-size: 0.85rem;
+      
+    }
     </style>
 {% include "navbar.html" %}
 <!-- Loader -->
@@ -101,7 +108,7 @@
                         {{ form | crispy }}
                         <div class="d-grid gap-2 mt-2">
                             <button class="btn btn-danger btn-sm" type="submit">Search</button>
-                            <a href="{% url 'dalal_list' %}" class="btn btn-outline-danger btn-sm">Reset</a>
+                            <a href="{% url 'index' %}" class="btn btn-outline-danger btn-sm">Reset</a>
                         </div>
                     </form>
                 </div>
@@ -134,18 +141,18 @@
         </div>
     
         <div class="card-body" >
-            <h5 class="card-title mb-1">{{ dalal.name }}</h5>
+            <h5 class="card-title mb-1">{{ dalal.name|upper }}</h5>
 
             <p class="small mb-2"><strong>Role:</strong> {{ dalal.role }}</p>
 
             <p class="small mb-2">
                 <strong>Status:</strong>
                 <span class="badge 
-                    {% if dalal.status == 'available' %}bg-warning
+                    {% if dalal.status == 'available' %}bg-orange
                     {% elif dalal.status == 'captured' %}bg-primary
                     {% elif dalal.status == 'fugitive' %}bg-danger
                     {% elif dalal.status == 'terminated' %}bg-success
-                    {% else %}bg-secondary
+                    {% else %}bg-danger
                     {% endif %}">
                     {{ dalal.get_status_display }}
                 </span>

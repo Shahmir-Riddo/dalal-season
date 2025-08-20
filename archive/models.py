@@ -17,11 +17,6 @@ class District(models.Model):
 
     def __str__(self):
         return self.name
-    
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        return super().save(*args, **kwargs)
 
 
 
@@ -42,11 +37,11 @@ class Dalal(models.Model):
     # dob = models.DateField(null=True, blank=True)
     address_last_known = models.TextField(null=True, blank=True)
     district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, blank=True)
-    country = models.CharField(max_length=100,null=True, blank=True)
+    country = models.CharField(max_length=100, null=True, blank=True)
 
     #public info
     role = models.CharField(max_length=250)
-    affiliation = models.TextField()
+    affiliation = models.TextField(null=True, blank=True)
     profile_report = RichTextField(blank=True, null=True)
 
     #metrics
@@ -59,10 +54,3 @@ class Dalal(models.Model):
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        return super().save(*args, **kwargs)
-
-
