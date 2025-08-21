@@ -53,11 +53,5 @@ class Dalal(models.Model):
 
 
     def __str__(self):
-<<<<<<< HEAD
+
         return self.name
-=======
-        return self.name
-
-
-
->>>>>>> 66ff1b058fd366923e3b7bb5992a3e487742948f

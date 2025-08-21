@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+{{ dalal.name }}
+{% endblock title %}
 {% block body %}
 
 <style>
@@ -59,11 +62,14 @@
         color: darkred;
       
     }
-    .fixed-img {
-  width: 250px;  
-  height: 250px;  
-  object-fit: cover; /* crop instead of stretching */
+
+.fixed-img {
+  width: 12.5rem;     /* ~200px */
+  height: 12.5rem;     /* fixed height */
+  object-fit: cover; /* crop to fit box without stretching */
+  border-radius: 8px; /* optional: make corners neat */
 }
+
 </style>
 {% include "navbar.html" %}
 <div class="container my-6">
